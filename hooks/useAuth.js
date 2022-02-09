@@ -58,17 +58,20 @@ useEffect(
       signOut(auth).catch((error) =>setError(error)
       .finally(()=>setLoading(false)))
     }
+
+
+    const memoedValue=useMemo(()=>({
+      user,
+      loading,
+      error,
+      signInWithGoogle,
+      logout,
+
+    }),[user,loading,error]) 
   
 
   return (
-    <AuthContext.Provider value={{
-          user,
-          loading,
-          error,
-          signInWithGoogle,
-          logout,
-
-      }}
+    <AuthContext.Provider value={memoedValue}  
     >
         {!loadingInitial && children}
      </AuthContext.Provider>
