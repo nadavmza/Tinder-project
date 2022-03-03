@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState,useMemo} from "react";
 import * as Google from "expo-google-app-auth";
 import {
   GoogleAuthProvider,
@@ -11,6 +11,7 @@ import {auth} from "../firebase";
 const AuthContext=createContext({});
 
 const config={
+  iosClientId:"551241887947-mcqu28hv9t3bfrv6vmghijv4dqvvvvb3.apps.googleusercontent.com",
   androidClientId:"551241887947-i0vjpon4q6uv8ca08f5nftj5o13ne7md.apps.googleusercontent.com",
   scopes:["profile","email"],
   permissions:["public_profile","email","gender","location"],
